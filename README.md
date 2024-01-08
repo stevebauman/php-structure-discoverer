@@ -16,7 +16,6 @@ Discover::in(__DIR__)->classes()->implementing(Arrayable::class)->get();
 ```
 
 As an added benefit, it has a built-in cache functionality that makes the whole process fast in production.
-
 The package is not only limited to classes but can also find enums, interfaces, and traits and has extra metadata for each structure.
 
 ## Support us
@@ -41,7 +40,7 @@ composer require spatie/php-structure-discoverer
 If you're using Laravel, then you can also publish the config file with the following command:
 
 ```bash
-php artisan vendor:publish --tag="php-structure-discoverer-config"
+php artisan vendor:publish --tag="structure-discoverer-config"
 ```
 
 This is the contents of the published config file:
