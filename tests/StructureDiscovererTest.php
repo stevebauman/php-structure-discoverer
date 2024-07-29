@@ -1,5 +1,6 @@
 <?php
 
+use Spatie\StructureDiscoverer\Tests\Fakes\FakeStringEnum;
 use function Pest\Laravel\artisan;
 
 use Spatie\StructureDiscoverer\Cache\FileDiscoverCacheDriver;
@@ -476,5 +477,17 @@ it('can use a profile condition', function () {
     expect($found)->toEqualCanonicalizing([
         FakeChildClass::class,
         FakeChildInterface::class,
+    ]);
+});
+
+it('can discover enums with interfaces', function () {
+    $found = Discover::in(__DIR__.'/Fakes')
+        ->implementing(FakeChildInterface::class)
+        ->enums()
+        ->get();
+
+    expect($found)->toEqualCanonicalizing([
+        FakeEnum::class,
+        FakeStringEnum::class,
     ]);
 });
